@@ -31,3 +31,23 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# PDFs, DOCXs
+*.pdf
+*.docx
+
+# ZIPs e RARs
+*.zip
+*.rar
+
+# Dataset
+Dataset/*
+
+# Liberando algumas imagens para teste
+!Dataset/0a*.png
+
+# Node modules
+node_modules
+
+# Backend images
+backend/images/*

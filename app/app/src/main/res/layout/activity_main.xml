@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MainActivity"
+    android:orientation="vertical"
+    android:layout_margin="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="30dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:background="@drawable/main_bordas"
+            android:layout_margin="10dp"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/logounir" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:justifyContent="space_evenly"
+            >
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_refresh_24"
+                android:contentDescription="@string/descricao_botao_reset" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnSalva"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_save_24"
+                android:contentDescription="@string/descricao_botao_salvar" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnGaleria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_image_24"
+                android:contentDescription="@string/descricao_botao_galeria" />
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:background="@drawable/main_bordas"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:flexDirection="row"
+            app:justifyContent="space_evenly"
+            >
+            <EditText
+                android:id="@+id/edtRaioRBC"
+                android:background="@drawable/main_fundo_edit_texts"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="5dp"
+                app:layout_alignSelf="flex_end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                app:layout_maxWidth="80dp"
+                android:textAlignment="center"
+                android:text="@string/valor_padrao_rbc"
+                android:textColor="?attr/customEditTextTextColor"
+                />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexDirection="column">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_raio_rbc"
+                    />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sldRaioRBC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:value="15"
+                    android:valueFrom="0"
+                    android:valueTo="100"
+                    />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:background="@drawable/main_bordas"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:flexDirection="row"
+            app:justifyContent="space_evenly"
+            >
+            <EditText
+                android:id="@+id/edtRaioWBC"
+                android:background="@drawable/main_fundo_edit_texts"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="5dp"
+                app:layout_alignSelf="flex_end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                app:layout_maxWidth="80dp"
+                android:textAlignment="center"
+                android:text="@string/valor_padrao_wbc"
+                android:textColor="?attr/customEditTextTextColor"
+                />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexDirection="column">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_raio_wbc"
+                    />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sldRaioWBC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:value="20"
+                    android:valueFrom="0"
+                    android:valueTo="100"/>
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:flexDirection="column"
+            app:alignItems="center"
+            android:padding="10dp"
+            >
+
+            <Button
+                android:id="@+id/btnCelulas"
+                android:background="@drawable/main_bordas"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/botao_celulas_vermelhas"
+                android:textColor="?attr/colorPrimary" />
+
+            <Button
+                android:id="@+id/btnDNA"
+                android:background="@drawable/main_bordas"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/botao_corpos_dna"
+                android:textColor="?attr/colorPrimary"/>
+
+            <Button
+                android:id="@+id/btnCompleto"
+                android:background="@drawable/main_bordas"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/botao_processo_completo"
+                android:textColor="?attr/colorPrimary"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+    </LinearLayout>
+
+</ScrollView>
