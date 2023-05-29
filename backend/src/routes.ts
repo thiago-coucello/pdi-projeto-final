@@ -24,11 +24,11 @@ export async function appRoutes(app: FastifyInstance) {
     }
 
     if (!RBC) {
-      RBC = 15;
+      RBC = 10;
     }
 
     if (!WBC) {
-      WBC = 20;
+      WBC = 13;
     }
     
     if (part)  {
