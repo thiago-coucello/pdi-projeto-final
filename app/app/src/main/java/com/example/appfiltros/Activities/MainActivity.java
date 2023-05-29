@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton btnReset, btnSalva, btnGaleria;
     private Slider sldRaioRBC, sldRaioWBC;
     private static final int PEGAR_IMAGEM = 100;
-    private static int raioRBC = 15, raioWBC = 20;
+    private static int raioRBC = 10, raioWBC = 13;
     Uri imageUri;
 
     BitmapDrawable bmpOriginal, bmpProcessado; // usado para pegar o bitmap da imagem original.
@@ -209,16 +209,21 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void realizarRequisicao(String opcao) {
+        if (imageUri == null) {
+            Toast.makeText(this, "Selecione uma imagem!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
         String caminhoImagem = recuperarCaminho(MainActivity.this, imageUri);
-        Log.d("IMAGE PATH", caminhoImagem);
         File imagemAProcessar = new File(caminhoImagem);
         RequestBody corpoReq = RequestBody.create(MediaType.parse("image/*"), imagemAProcessar);
         MultipartBody.Part envio = MultipartBody.Part.createFormData("originalImage", imagemAProcessar.getName(), corpoReq);
     
         ProccessImage servicoProcessarImagem = RetrofitAPI.getProcessImageService();
         Call<ResponseBody> servico = servicoProcessarImagem.processImage(envio, opcao, raioRBC, raioWBC);
-    
+        Log.d("RETROFIT URL", servico.request().url().toString());
         // Realizando requisição e pegando resposta
+        Toast.makeText(this, "Realizando processamento...", Toast.LENGTH_LONG).show();
         servico.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

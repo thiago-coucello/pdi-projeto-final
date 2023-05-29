@@ -94,8 +94,8 @@
                     android:id="@+id/sldRaioRBC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:value="15"
-                    android:valueFrom="0"
+                    android:value="10"
+                    android:valueFrom="1"
                     android:valueTo="100"
                     />
 
@@ -142,8 +142,8 @@
                     android:id="@+id/sldRaioWBC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:value="20"
-                    android:valueFrom="0"
+                    android:value="13"
+                    android:valueFrom="1"
                     android:valueTo="100"/>
 
             </com.google.android.flexbox.FlexboxLayout>

@@ -14,7 +14,7 @@ public class RetrofitAPI {
   private static void createApi() {
     if (api == null) {
       OkHttpClient client = new OkHttpClient.Builder()
-          .connectTimeout(60, TimeUnit.SECONDS)
+          .connectTimeout(300, TimeUnit.SECONDS)
           .build();
       
       api = new Retrofit.Builder()

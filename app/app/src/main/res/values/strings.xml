@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppFiltros</string>
+    <string name="app_name">PLASMODIIAG</string>
     <string name="objetivo">Este aplicativo tem o objetivo de proporcionar uma solução que identifica células vermelhas e/ou corpos de DNA em uma imagem de exame de sangue</string>
     <string name="aviso"> Este aplicativo necessita de permissão para ler e salvar imagens no dispositivo</string>
     <string name="comecar">Começar</string>
@@ -11,6 +11,6 @@
     <string name="descricao_botao_galeria">Carregar imagem</string>
     <string name="label_raio_rbc">Raio da Célula Vermelha do Sangue:</string>
     <string name="label_raio_wbc">Raio da Célula Branca do Sangue:</string>
-    <string name="valor_padrao_rbc">15</string>
-    <string name="valor_padrao_wbc">20</string>
+    <string name="valor_padrao_rbc">10</string>
+    <string name="valor_padrao_wbc">13</string>
 </resources>

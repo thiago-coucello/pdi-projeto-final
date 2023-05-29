@@ -42,7 +42,7 @@ endfunction
 files_list = dir("Dataset");
 
 % Iterando pelos arquivos 1 a 7 (Exibirá 5 imagens)
-for i = 1 : 7
+for i = 1 : 3
   img_file = files_list(i);
 
   if isequaln(img_file.name, ".") || isequaln(img_file.name,"..")
@@ -50,7 +50,9 @@ for i = 1 : 7
   endif
 
   % Lendo imagem original
-  original_image = imread(strcat(img_file.folder, "/", img_file.name));
+  %original_image = imread(strcat(img_file.folder, "/", img_file.name));
+  %original_image = imread("Dataset/0a7bfa8a-ee52-4f7a-b9c5-2919ecfa93ef.png");
+  original_image = imread("Dataset/0a747cb3-c720-4572-a661-ab5670a5c42e.png");
 
   % Redimensionando para 1/4 do tamanho original para maior rapidez do código
   [lin, col, ~] = size(original_image);
@@ -66,8 +68,8 @@ for i = 1 : 7
   % Realizando filtragem morfológica
 
   %% Esses raios não foram especificados corretamente no artigo
-  RBC_radius = 15;  % Raio das células vermelhas do sangue (Red Blood Cells - RBCs)
-  WBC_radius = 20;  % Raio das células brancas do sangue (White Blood Cells - WBCs)
+  RBC_radius = 10;  % Raio das células vermelhas do sangue (Red Blood Cells - RBCs)
+  WBC_radius = 13;  % Raio das células brancas do sangue (White Blood Cells - WBCs)
 
   outer_ring_ratio = 0.70;  % Razão do anel externo do elemento estruturante
   inner_ring_ratio = 0.35;  % Razão do anel interno do elemento estruturante
@@ -99,7 +101,7 @@ for i = 1 : 7
   arr_disk = strel("disk", arr_inner_ring_radius, 0);
 
   % Realizando filtragem ARR
-  arr_image = arr_filter(gray_image, arr_ring, arr_disk, arr_outer_ring_radius, arr_inner_ring_radius);
+  arr_image = arr_filter(eroded_image, arr_ring, arr_disk, arr_outer_ring_radius, arr_inner_ring_radius);
 
   % Extraindo cada artefato que seriam as células vermelhas
   blood_cells = bwboundaries(arr_image);
@@ -142,6 +144,9 @@ for i = 1 : 7
 
   % Gerando imagem de marcadores a partir da matiz e saturação
   marker_image = binary_hue .* binary_saturation;
+
+  figure,
+  imshow(marker_image);
 
   % Extraindo corpos de DNA (corpos brilhantes na imagem de marcadores)
   dna_bodies = bwboundaries(marker_image);

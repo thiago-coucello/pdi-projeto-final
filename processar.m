@@ -91,7 +91,7 @@ if isequaln(task, "all") || isequaln(task, "blood")
   arr_disk = strel("disk", arr_inner_ring_radius, 0);
 
   % Realizando filtragem ARR
-  arr_image = arr_filter(gray_image, arr_ring, arr_disk, arr_outer_ring_radius, arr_inner_ring_radius);
+  arr_image = arr_filter(eroded_image, arr_ring, arr_disk, arr_outer_ring_radius, arr_inner_ring_radius);
 
   % Extraindo cada artefato que seriam as células vermelhas
   blood_cells = bwboundaries(arr_image);
@@ -159,7 +159,7 @@ if isequaln(task, "all") || isequaln(task, "dna")
     dna_body_x = dna_body(:, 2);
     dna_body_y = dna_body(:, 1);
 
-    plot(dna_body_x, dna_body_y, "-g", "LineWidth", 1);
+    plot(dna_body_x, dna_body_y, "-.g", "LineWidth", 1);
   endfor
   hold off;
 endif
